@@ -1,12 +1,12 @@
 FROM php:8.2-apache
 
-# Salin semua file ke container
 COPY . /var/www/html/
 WORKDIR /var/www/html
 
-# Install ekstensi mongodb terbaru dan composer
+# Hapus cache dulu, lalu paksa build ekstensi mongodb terbaru dari source
 RUN apt-get update && apt-get install -y git unzip libssl-dev && \
-    pecl install mongodb-1.17.0 && \
+    pecl clear-cache && \
+    yes "" | pecl install mongodb && \
     docker-php-ext-enable mongodb && \
     curl -sS https://getcomposer.org/installer | php && \
     php composer.phar install --ignore-platform-req=ext-mongodb
