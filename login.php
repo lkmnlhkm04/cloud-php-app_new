@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
         exit;
     } else {
-        $error = "Username atau password salah!";
+        $error = "Username atau Password Anda salah!";
     }
 }
 ?>
@@ -32,10 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="container mt-5">
     <h2>Login Admin</h2>
     <?php if(!empty($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
+    
     <form method="POST" class="mt-3">
         <input type="text" name="username" class="form-control mb-3" placeholder="Username" required>
         <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
         <button type="submit" class="btn btn-primary">Login</button>
+
+        <!-- Caption Tambahan -->
+        <p class="text-center mt-3" style="font-size: 13px; color: #777; font-style: italic;">
+            Created by <strong>Lukmanul Hakim</strong>
+        </p>
+
     </form>
 </div>
 </body>
