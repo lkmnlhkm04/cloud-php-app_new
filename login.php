@@ -27,23 +27,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>Login Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fafafa;
+        }
+        .login-box {
+            width: 350px;
+            padding: 30px;
+            background: white;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h2>Login Admin</h2>
+
+<div class="login-box text-center">
+
+    <h3 class="mb-4">Login Admin</h3>
+
     <?php if(!empty($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
-    
+
     <form method="POST" class="mt-3">
         <input type="text" name="username" class="form-control mb-3" placeholder="Username" required>
         <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
-        <button type="submit" class="btn btn-primary">Login</button>
 
-        <!-- Caption Tambahan -->
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+
+        <!-- Caption Creator -->
         <p class="text-center mt-3" style="font-size: 13px; color: #777; font-style: italic;">
             Created by <strong>Lukmanul Hakim</strong>
         </p>
-
     </form>
 </div>
+
 </body>
 </html>
