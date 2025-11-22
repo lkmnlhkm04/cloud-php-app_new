@@ -35,16 +35,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #fafafa;
+
+            /* Gradient Background */
+            background: linear-gradient(120deg, #74ebd5, #ACB6E5);
             font-family: Arial, sans-serif;
         }
 
         .login-box {
-            width: 350px;
+            width: 360px;
             padding: 30px;
-            background: white;
-            border: 1px solid #dbdbdb;
-            border-radius: 8px;
+
+            /* GLASSMORPHISM */
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
 
             /* Animation */
             opacity: 0;
@@ -58,13 +64,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 transform: translateY(0);
             }
         }
+
+        /* icon toggle password */
+        .toggle-pass {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #555;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
 
 <div class="login-box text-center">
 
-    <h3 class="mb-4">Login Admin</h3>
+    <h3 class="mb-4 fw-bold">Login Admin</h3>
 
     <?php if(!empty($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
 
@@ -76,19 +93,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="username">Username</label>
         </div>
 
-        <!-- Floating Label Password -->
-        <div class="form-floating mb-3">
+        <!-- Floating Label Password + Show/Hide -->
+        <div class="form-floating mb-3 position-relative">
             <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
             <label for="password">Password</label>
+
+            <span class="toggle-pass" onclick="togglePassword()">👁️</span>
         </div>
 
         <button type="submit" class="btn btn-primary w-100">Login</button>
 
-        <p class="text-center mt-3" style="font-size: 13px; color: #777; font-style: italic;">
+        <p class="text-center mt-3" style="font-size: 13px; color: #222; font-style: italic;">
             Created by <strong>Lukmanul Hakim</strong>
         </p>
     </form>
 </div>
+
+<script>
+function togglePassword() {
+    const pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+</script>
 
 </body>
 </html>
