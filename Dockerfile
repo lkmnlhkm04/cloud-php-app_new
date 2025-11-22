@@ -8,7 +8,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install MongoDB extension (correct version 1.18.1)
-RUN pecl clear-cache && \
+RUN mkdir -p /tmp/pear/cache && \
     yes "" | pecl install mongodb-1.18.1 && \
     docker-php-ext-enable mongodb
 
