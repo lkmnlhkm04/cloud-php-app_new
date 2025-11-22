@@ -31,17 +31,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             height: 100vh;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #fafafa;
+            font-family: Arial, sans-serif;
         }
+
         .login-box {
             width: 350px;
             padding: 30px;
             background: white;
             border: 1px solid #dbdbdb;
             border-radius: 8px;
+
+            /* Animation */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -59,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit" class="btn btn-primary w-100">Login</button>
 
-        <!-- Caption Creator -->
         <p class="text-center mt-3" style="font-size: 13px; color: #777; font-style: italic;">
             Created by <strong>Lukmanul Hakim</strong>
         </p>
