@@ -1,14 +1,7 @@
 {
-    "name": "cloud-php-app_new",
-    "description": "Cloud Computing Project",
     "require": {
         "php": "^8.0",
         "mongodb/mongodb": "^1.16",
         "ext-mongodb": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
     }
 }
