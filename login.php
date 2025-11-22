@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
         exit;
     } else {
-        $error = "Username atau Password Anda salah!";
+        $error = "Username atau Password Anda Salah!";
     }
 }
 ?>
@@ -68,9 +68,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?php if(!empty($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
 
-    <form method="POST" class="mt-3">
-        <input type="text" name="username" class="form-control mb-3" placeholder="Username" required>
-        <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+    <form method="POST">
+
+        <!-- Floating Label Username -->
+        <div class="form-floating mb-3">
+            <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+            <label for="username">Username</label>
+        </div>
+
+        <!-- Floating Label Password -->
+        <div class="form-floating mb-3">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+            <label for="password">Password</label>
+        </div>
 
         <button type="submit" class="btn btn-primary w-100">Login</button>
 
