@@ -100,7 +100,7 @@ $documents = $collection->find($filter, $options);
                 <td><?php echo date('d-m-Y H:i', $doc['created_at']->toDateTime()->getTimestamp()); ?></td>
                 <td>
                     <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $doc['_id']; ?>">Edit</button>
-                    <a href="delete.php?id=<?php echo $doc['_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
+                    <a href="delete.php?id=<?php echo $doc['_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda Yakin Ingin Menghapusnya?')">Hapus</a>
                 </td>
             </tr>
 
@@ -171,3 +171,4 @@ $documents = $collection->find($filter, $options);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
